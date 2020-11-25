@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+  function play() {
+    var audio = document.getElementById("audio");
+    audio.play();
+  }
+</script>
+	<div class="video-wrapper">
+    	<video loop autoplay muted>
+			<source src="{{selected_avatar.file.url}}" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+		<div class="player-button">
+		<input type="button" value="START" onclick="play()">
+		</div>
+	</div>	
+	<audio id="audio" src="{{selected_question.file.url}}"></audio>
+
+
+{% endblock content %}	

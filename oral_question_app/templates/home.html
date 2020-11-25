@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+	<article class="media content-section">
+	  <div class="media-body">
+
+		<form action="start/" method="post">
+			{% csrf_token %}
+			<select name="avatar" id="">
+				{% for avatar in avatars %}
+					<option value="{{ avatar.avatarname }}">{{ avatar.avatarname }}</option>
+				{% endfor %}
+			</select>
+			<select name="question" id="">
+				{% for question in questions %}
+					<option value="{{ question.question }}">{{ question.question }}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value=" Start">
+		</form>
+	  
+	  </div>
+	</article>
+{% endblock content %}	
