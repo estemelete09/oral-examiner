@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- script for running the audio file -->
 <script>
   function play() {
     var audio = document.getElementById("audio");
@@ -12,11 +12,14 @@
 			<source src="{{selected_avatar.file.url}}" type="video/mp4">
 		Your browser does not support the video tag.
 		</video>
+
 		<div class="player-button">
 		<input type="button" value="START" onclick="play()">
 		</div>
-	</div>	
+
+		<div class="webcam">
+		<img src="{% url 'webcam_feed' %}">	
+		</div>
+	</div>
 	<audio id="audio" src="{{selected_question.file.url}}"></audio>
-
-
 {% endblock content %}	

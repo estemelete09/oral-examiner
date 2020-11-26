@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("home/", views.home, name="home"),
     path("home/start/", views.start, name="start"),
+    path("webcam_feed", views.webcam_feed, name="webcam_feed"),
 ] 
 
 urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
