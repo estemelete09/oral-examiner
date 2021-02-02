@@ -1,4 +1,3 @@
-<!-- Displays all model names -->
 {% extends "base.html" %}
 {% block content %}
 	<article class="media content-section">
@@ -9,11 +8,6 @@
 			<select name="avatar" id="">
 				{% for avatar in avatars %}
 					<option value="{{ avatar.avatarname }}">{{ avatar.avatarname }}</option>
-				{% endfor %}
-			</select>
-			<select name="question" id="">
-				{% for question in questions %}
-					<option value="{{ question.question }}">{{ question.question }}</option>
 				{% endfor %}
 			</select>
 			<input type="submit" value=" Start">

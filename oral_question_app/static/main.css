@@ -13,6 +13,10 @@ ul {
   margin: 0;
 }
 
+p{
+  color: red;
+}
+
 .bg-steel {
   background-color:   #FFD700;
 }
@@ -108,7 +112,7 @@ a.article-title:hover {
     left: 15%;
     margin: -64px 0 0 -64px;
     position: absolute;
-    top: 80%;
+    top: 70%;
     width: 128px;
     z-index: 1; 
 }
@@ -118,8 +122,15 @@ a.article-title:hover {
   left: 80%;
   height: 20%;
   width: 15%;
-
-
+}
+.video-wrapper>div[class=answering]{
+  height: 50px;
+  left: 20%;
+  margin: -64px 0 0 -64px;
+  position: absolute;
+  top: 50%;
+  width: 128px;
+  z-index: 1; 
 }
 
 html{overflow: hidden;

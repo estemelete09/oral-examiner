@@ -13,15 +13,25 @@ class Voices(models.Model):
     def __str__(self):
         return self.voicename
 
+    def delete(self, *args, **kwargs):
+        self.file.delete(save=False)
+        super(Voices, self).delete(*args, **kwargs)    
+
 class Questions(models.Model):
     question = models.CharField(max_length=122)
-    file = models.FileField(upload_to="questions/")
+    question_details = models.CharField(max_length=255)
+    answer = models.CharField(max_length=122)
+    # file = models.FileField(upload_to="questions/")
 
     class Meta:
         verbose_name_plural = 'Questions'
 
     def __str__(self):
         return self.question
+
+    # def delete(self, *args, **kwargs):
+    #         self.file.delete(save=False)
+    #         super(Questions, self).delete(*args, **kwargs)        
 
 class Avatars(models.Model):
     avatarname = models.CharField(max_length=122)

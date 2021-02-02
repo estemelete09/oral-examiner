@@ -1,25 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- script for running the audio file -->
-<script>
-  function play() {
-    var audio = document.getElementById("audio");
-    audio.play();
-  }
-</script>
-	<div class="video-wrapper">
-    	<video loop autoplay muted>
-			<source src="{{selected_avatar.file.url}}" type="video/mp4">
-		Your browser does not support the video tag.
-		</video>
+    <!-- for image type avatar display -->
+    <div class="video-wrapper" 
+        style= "background-image: url('{{selected_avatar.file.url}}');
+            background-repeat: no-repeat;
+            background-position: center;
+            ">
 
-		<div class="player-button">
-		<input type="button" value="START" onclick="play()">
-		</div>
+        <!-- for video type avatar display -->
+        <!-- <video loop autoplay muted>
+            <source src="{{selected_avatar.file.url}}" type="video/mp4">
+        Your browser does not support the video tag.
+        </video> -->
 
-		<div class="webcam">
-		<img src="{% url 'webcam_feed' %}">	
-		</div>
-	</div>
-	<audio id="audio" src="{{selected_question.file.url}}"></audio>
-{% endblock content %}	
+            <div class="answering">
+                <p id="result"></p>
+                <form id="audioform" action="get">
+                    <select name="question" id="questionfield">
+                        {% for question in questions %}
+                            <option value="{{ question.question }}">{{ question.question }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" id="playquestion" name="playquestion" value=" Click to play Question" class="answerbutton">
+                    <p id="answerfield">Your Answer: {{audiodata}}</p>
+                    <input type="submit" id="answerbutton" name="answerbutton" value="Record Answer"class="answerbutton">
+                    <input type="submit" id="checkbutton" name= "checkbutton" value="Check Answer" class="answerbutton">
+                </form>                          
+            </div>
+        <div class="webcam">
+            <img src="{% url 'webcam_feed' %}"> 
+        </div>
+    </div>
+
+{% endblock content %}
+
+
